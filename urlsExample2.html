@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Urls Example 2</title>
+</head>
+
+<body>
+  <div>
+    <!-- Javascript -->
+    <script>document.write("<h1>"+document.title+"</h1>");</script>
+    
+    <!-- In this script I just copy what is in "urls.js", so I can use the functions that are defnied in it -->
+    <script src="urls.js"></script>
+
+    <!-- In this script I define two functions:-->
+    <script>
+
+    function showPictures(){
+      // shows the large pictures in order (we use unordered list here)
+      var pictureUrls = getPictureUrls("input does not matter yet");
+      document.write("<h2>Pictures (large)</h2>");
+      document.write("<ul>");
+      for(var i=0; i<pictureUrls.length; i++){
+        document.write("<li><img src=\""+pictureUrls[i]+"\"></li>");
+      };
+      document.write("</ul>");
+    };
+
+    function playMusic(){
+      // Plays the first music in the music urls
+      var musicUrls = getMusicUrls("input does not matter yet");
+      document.write("<h2>Play music</h2>");
+      document.write(
+        "<audio controls autoplay><source src=\""+musicUrls[0]+"\"></source>Your browser does not support this audio format.</audio>");
+    };
+    </script>
+
+    <!-- In this script I call the first function:-->
+    <script>showPictures();</script>
+    <!-- In this script I call the second function:-->
+    <script>playMusic();</script>
+    
+
+
+  </div>
+
+
+
+</body>
+</html>
