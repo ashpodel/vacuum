@@ -60,6 +60,7 @@ var FMA_API_KEY="JD5IH3QJWWQU7AYL"; // EC's Free Music Archives api key
 function getFMAUrls(){
 	// This retrieves some music urls (for stream) from Free Music Archives
 	pool = [
+	"sound/Eddie_Vedder-Society-Into_the_Wild_Soundtrack.ogg",
 	"http://freemusicarchive.org/music/listen/a95422819f2a72bb04115d5da1152feccdf4aac6",
 	"http://freemusicarchive.org/music/listen/37d1023a4f8c8505c2f39ef84a984aceb49df281"
 	];

@@ -3,150 +3,50 @@
 <head>
   <meta charset="utf-8">
   <title>Vacuum Show</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
   <!-- Le styles -->
   <link href="css/bootstrap.css" rel="stylesheet">
-  <style>
-  body {
-    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-  }
-  .slideshow-block{width: 800px; height:500px; overflow: hidden;}
-  .slides{margin:0;padding:0;}
-  .slides li{list-style: none; margin: 0; padding: 0}
-  </style>
-  <link href="css/bootstrap-responsive.css" rel="stylesheet">
-  <style>
-  body {
-    background-color: #000000;
-  }
-  </style>
-  <style>
-    /* CUSTOMIZE THE FORM
-    -------------------------------------------------- */
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.backstretch.min.js"></script>
 
-    /* Special class on .container surrounding .navbar, used for positioning it into place. */
-    textarea {
-      width:100%;
-      height:100%;
-    }
-    </style>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster. ASHISH: I moved them back to the top for readability - can move them back later. -->
+    <!-- In this script I just copy what is in "urls.js", so I can use the functions that are defnied in it -->
+    <script src="urls.js"></script>
 
-
+    <!-- In this script I define two functions:-->
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="../assets/js/html5shiv.js"></script>
       <![endif]-->
-
-      <!-- Fav and touch icons -->
-      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-      <link rel="shortcut icon" href="../assets/ico/favicon.png">
     </head>
-
     <body>
+      <script>
+          var pictureUrls = getPictureUrls("input does not matter yet");
+          $.backstretch(pictureUrls, {
+              fade: 750,
+              duration: 1000
+          });
+      </script>
+      <script>
+      function printMusicUrlsOL(){
+        // Prints music urls in an ordered list
+        var musicUrls = getMusicUrls("input does not matter yet");
+        document.write("<audio controls autoplay>");
+        document.write("<source src='"+musicUrls[0]+"'type='audio/ogg' controls='controls'></source>");
+        document.write("</audio>");
+      };
+      </script>    
 
+      <script>printMusicUrlsOL();</script> 
 
-      <div class="container">
-
-       <div class="row">
-        <div class="span2">
-        </div>
-        <div class="span8">
-
-          <audio controls autoplay>
-           <source src="sound/Eddie_Vedder-Society-Into_the_Wild_Soundtrack.ogg" type="audio/ogg" controls="controls"></source>
-           <source src="sound/Eddie_Vedder-Society-Into_the_Wild_Soundtrack.mp3" type="audio/mpeg"></source>
-           <source src="sound/Eddie_Vedder-Society-Into_the_Wild_Soundtrack.wav" type="audio/wav"></source>
-           Your browser does not support this audio format.
-         </audio> 
-
-         <div class="slideshow-block">
-          <ul class="slides">
-            <li><img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSGv7Ug4BaJo1r2UjiYBoIkjbxhto3mDk9SxOn4IZWQylnna4-I"/ class="img-rounded"></li>
-            <li><img src="img/2.png"/ class="img-rounded"></li>
-            <li><img src="img/3.png"/ class="img-rounded"></li>
-            <li><img src="img/4.png"/ class="img-rounded"></li>
-            <li><img src="img/5.png"/ class="img-rounded"></li>
-            <li><img src="img/6.png"/ class="img-rounded"></li>
-            <li><img src="img/7.png"/ class="img-rounded"></li>
-            <li><img src="img/8.png"/ class="img-rounded"></li>
-            <li><img src="img/9.png"/ class="img-rounded"></li>
-            <li><img src="img/10.png"/ class="img-rounded"></li>
-            <li><img src="img/11.png"/ class="img-rounded"></li>
-          </ul>
-        </div>
-
-        <p></p>
-
-        <form action="" method="post">
-          <select name="create" id="create" style="background-color: #000000;color: #FFFFFF">
-          <option value="main">Create</option>
-          <option value="write">Write</option>
-          <option value="draw">Draw</option>
-        </select>
-        <br>
-        <div id="createWrite" style="display: none;">
-          <label>Write</label> 
-          <textarea name="textcreated" style="background-color: #000000;color: #FFFFFF"></textarea>
-          <input type="submit" name="submit" value="Save" style="background-color: #000000;color: #FFFFFF" disabled/>
-        </div>
-        <div id="createDraw" style="display: none;">
-          <label>Draw</label> 
-          <textarea name="textcreated" style="background-color: #000000;color: #FFFFFF"></textarea>
-          <input type="submit" name="submit" value="Save" style="background-color: #000000;color: #FFFFFF;border-color: #000000; border: 0px" disabled/>
-        </div>
-        <br />
-      </form>
       <a class="btn btn-small btn-inverse" href="index.html">Home</a>
 
+    <!-- In this script I call the first function:-->
+    
+    <!-- In this script I call the second function:-->
+    
+    
 
-    </div>
-    <div class="span2">
-    </div>
-  </div> <!-- /container -->
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jQuery-dev.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript">
-    jQuery(function($){
-
-      // Cycle plugin
-      $('.slides').cycle({
-        fx:     'fade',
-        speed:   1250,
-        timeout: 750
-      }).cycle("pause");
-
-      // Pause & play on hover
-      $('.slideshow-block').hover(function(){
-        $(this).find('.slides').addClass('active').cycle('resume');
-      }, function(){
-        $(this).find('.slides').removeClass('active').cycle('pause');
-      });
-
-    });
-    </script>
-    <script>
-    $(document).ready(function(){
-      $('#create').change(function(){
-        $('#createWrite')[$(this).val()=='write' ? 'show' : 'hide']();
-      });
-    });
-    $(document).ready(function(){
-      $('#create').change(function(){
-        $('#createDraw')[$(this).val()=='draw' ? 'show' : 'hide']();
-      });
-    });
-    </script>
-    <script src="js/jquery.cycle.all.js"></script>
-  </body>
+    </body>
   </html>
