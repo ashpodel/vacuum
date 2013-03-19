@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Urls Example</title>
+  <script src="js/jQuery-dev.js"></script>
+</head>
+
+<body>
+  <div>
+    <!-- Javascript -->
+    <script>document.write("<h1>"+document.title+"</h1>");</script>
+    
+    <!-- In this script I just copy what is in "urls.js", so I can use the functions that are defnied in it -->
+    <script src="urls.js"></script>
+
+    <!-- In this script I define two functions:-->
+    <script>
+
+    function printPictureUrlsOL(){
+      // Prints picture urls in an ordered list
+      var pictureUrls = getPictureUrls("input does not matter yet");
+      document.write("<h2>Ordered list of picture urls</h2>");
+      document.write("<ol>");
+      for(var i=0; i<pictureUrls.length; i++){
+        document.write("<li>"+pictureUrls[i]+"</li>");
+      };
+      document.write("</ol>");
+    };
+    function printMusicUrlsOL(){
+      // Prints music urls in an ordered list
+      var musicUrls = getMusicUrls("input does not matter yet");
+      document.write("<h2>Ordered list of music urls</h2>");
+      document.write("<ol>");
+      for(var i=0; i<musicUrls.length; i++){
+        document.write("<li>"+musicUrls[i]+"</li>");
+      };
+      document.write("</ol>");
+    };
+
+    </script>
+
+    <!-- In this script I call the first function:-->
+    <script>printPictureUrlsOL();</script>
+    <!-- In this script I call the second function:-->
+    <script>printMusicUrlsOL();</script>
+    
+  </div>  
+<!-- Le javascript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jQuery-dev.js"></script>
+    <script src="js/bootstrap.js"></script>
+  
+</body>
+</html>

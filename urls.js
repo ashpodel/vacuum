@@ -10,30 +10,52 @@ function getMusicUrls(input){
 	return getFMAUrls();
 };
 
-/* Ashish, don't use the rest of the functions. */
+/*************************************************************
+The rest of the functions implement the first two functions. 
+*************************************************************/
+
+function response(RESTful_url){
+    // returns the string (it should be in json or xml format) returned by the RESTful url request
+    var options = { 
+    	dataType:'json',
+		async: false, // don't erase this line!
+		type: 'GET',
+		url: RESTful_url
+	};
+	var jqXHRObject =  jQuery.ajax(options);
+	return jqXHRObject.responseText;
+};
+
+
+/*************************************************************
+Functions to retrieve flickr urls 
+*************************************************************/
+
+var FLICKR_API_KEY="b88f268b6afd40932818ac007a9c3f4b"; // EC's flickr api key
 
 function getFlickrUrls(){
-	// This retrieves some interesting (and recent) flickr urls with 1024p on the longest side.  
-	pool = [
-	"http://farm9.staticflickr.com/8518/8559510285_e7b7743978_b.jpg",
-	"http://farm9.staticflickr.com/8107/8559379889_e6dfb2c7ea_b.jpg",
-	"http://farm9.staticflickr.com/8100/8559210959_0119cbe50e_b.jpg",
-	"http://farm9.staticflickr.com/8381/8559744010_3181f64744_b.jpg",
-	"http://farm9.staticflickr.com/8245/8560482560_6d229ea0df_b.jpg",
-	"http://farm9.staticflickr.com/8371/8558794173_05771443c7_b.jpg",
-	"http://farm9.staticflickr.com/8089/8558999205_ba244d9aab_b.jpg",
-	"http://farm9.staticflickr.com/8506/8558546677_30c181d61e_b.jpg",
-	"http://farm9.staticflickr.com/8390/8561139968_0fe2f9f4d1_b.jpg",
-	"http://farm9.staticflickr.com/8391/8561131560_dc93ea8202_b.jpg",
-	"http://farm9.staticflickr.com/8367/8560785100_534a3831b6_b.jpg",
-	"http://farm9.staticflickr.com/8099/8560715406_8f64952646_b.jpg",
-	"http://farm9.staticflickr.com/8229/8560577532_47aefe1251_b.jpg",
-	"http://farm9.staticflickr.com/8096/8560568202_e3eb660401_b.jpg",
-	"http://farm9.staticflickr.com/8385/8560432970_9e69fdb0db_b.jpg",
-	"http://farm9.staticflickr.com/8509/8560090884_2f565b848a_b.jpg"
-	];
-	return pool;
+	// This retrieves some interesting (and recent) flickr urls with 1024p on the longest side.
+	result=[];
+	var request = "http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key="+FLICKR_API_KEY;
+	var resp = response(request);
+    var photos = jQuery(resp).find('photo');
+	for(var ph=0 ; ph<photos.length ; ph++){
+		    var photo = photos[ph];
+    		var photo_id = photo.attributes.getNamedItem("id").value;
+    		//var owner = photos[ph]["owner"];
+    		var farm = photo.attributes.getNamedItem("farm").value;
+    		var server = photo.attributes.getNamedItem("server").value;
+    		var secret = photo.attributes.getNamedItem("secret").value;
+    		result.push("http://farm"+farm+".staticflickr.com/"+server+"/"+photo_id+"_"+secret+"_b.jpg");
+    };
+    return result;
 };
+
+/*************************************************************
+Functions to retrieve Free Music Archives urls 
+*************************************************************/
+
+var FMA_API_KEY="JD5IH3QJWWQU7AYL"; // EC's Free Music Archives api key
 
 function getFMAUrls(){
 	// This retrieves some music urls (for stream) from Free Music Archives
@@ -44,9 +66,5 @@ function getFMAUrls(){
 	return pool;
 };
 
-/* Emmanuel Charon Keys:
-Free Music Archives API key: "JD5IH3QJWWQU7AYL"
-Flickr API key: "b88f268b6afd40932818ac007a9c3f4b"
-*/
 
 
