@@ -57,14 +57,20 @@ Functions to retrieve Free Music Archives urls
 
 var FMA_API_KEY="JD5IH3QJWWQU7AYL"; // EC's Free Music Archives api key
 
-/*
+
 function FMAStreamUrl(track_id){
 	var request="http://freemusicarchive.org/services/playlists/embed/track/"+track_id+".json"
 	var resp = response(request);
     return jQuery(resp).find('stream').text;
 };
 console.log(FMAStreamUrl(23161));
-*/
+
+
+function FMATrackEmbed(track_id){
+	// Writes in the document an audio plug for the track id in FMA.
+	document.write("<object width=\"300\" height=\"50\"><param name=\"movie\" value=\"http://freemusicarchive.org/swf/trackplayer.swf\"/><param name=\"flashvars\" value=\"track=http://freemusicarchive.org/services/playlists/embed/track/"+track_id+".xml\"/><param name=\"allowscriptaccess\" value=\"sameDomain\"/><embed type=\"application/x-shockwave-flash\" src=\"http://freemusicarchive.org/swf/trackplayer.swf\" width=\"300\" height=\"50\" flashvars=\"track=http://freemusicarchive.org/services/playlists/embed/track/"+track_id+".xml\" allowscriptaccess=\"sameDomain\" /></object>");
+};
+
 
 
 
@@ -83,6 +89,10 @@ function getFMAUrls(){
 	"http://freemusicarchive.org/music/listen/c8b1c93de983ca19a50b3f76eca7bb7950a7b327"
 	];
 	return pool;
+
+
+
+
 };
 
 

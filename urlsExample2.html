@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Urls Example 2</title>
+  <script src="js/jQuery-dev.js"></script>
 </head>
 
 <body>
@@ -21,7 +22,7 @@
       var pictureUrls = getPictureUrls("input does not matter yet");
       document.write("<h2>Pictures (large)</h2>");
       document.write("<ul>");
-      for(var i=0; i<pictureUrls.length; i++){
+      for(var i=0; i<10; i++){
         document.write("<li><img src=\""+pictureUrls[i]+"\"></li>");
       };
       document.write("</ul>");
@@ -32,16 +33,16 @@
       var musicUrls = getMusicUrls("input does not matter yet");
       document.write("<h2>Play music</h2>");
       document.write(
-        "<audio controls autoplay><source src=\""+musicUrls[0]+"\"></source>Your browser does not support this audio format.</audio>");
+        "<audio controls autoplay><source src=\""+musicUrls[1]+"\"></source>Your browser does not support this audio format.</audio>");
     };
     </script>
 
     <!-- In this script I call the first function:-->
     <script>showPictures();</script>
     <!-- In this script I call the second function:-->
-    <script>playMusic();</script>
+    <script>/*playMusic();*/</script>
     
-
+    <script>FMATrackEmbed(64294)</script>
 
   </div>
 
