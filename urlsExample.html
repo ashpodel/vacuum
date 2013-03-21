@@ -19,7 +19,7 @@
 
     function printPictureUrlsOL(){
       // Prints picture urls in an ordered list
-      var pictureUrls = getPictureUrls("input does not matter yet");
+      var pictureUrls = getPictureUrls("Flickr",["galaxies","stars","hubble"],200);
       document.write("<h2>Ordered list of picture urls</h2>");
       document.write("<ol>");
       for(var i=0; i<pictureUrls.length; i++){
@@ -29,7 +29,7 @@
     };
     function printMusicUrlsOL(){
       // Prints music urls in an ordered list
-      var musicUrls = getMusicUrls("input does not matter yet");
+      var musicUrls = getMusicUrls();
       document.write("<h2>Ordered list of music urls</h2>");
       document.write("<ol>");
       for(var i=0; i<musicUrls.length; i++){

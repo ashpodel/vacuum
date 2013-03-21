@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Urls Example</title>
+  <title>Urls Development</title>
   <script src="js/jQuery-dev.js"></script>
 </head>
 
@@ -19,21 +19,11 @@
 
     function printPictureUrlsOL(){
       // Prints picture urls in an ordered list
-      var pictureUrls = getPictureUrls("input does not matter yet");
+      var pictureUrls = getPictureUrls("Flickr",["galaxies","stars"],30);
       document.write("<h2>Ordered list of picture urls</h2>");
       document.write("<ol>");
       for(var i=0; i<pictureUrls.length; i++){
         document.write("<li>"+pictureUrls[i]+"</li>");
-      };
-      document.write("</ol>");
-    };
-    function printMusicUrlsOL(){
-      // Prints music urls in an ordered list
-      var musicUrls = getMusicUrls("input does not matter yet");
-      document.write("<h2>Ordered list of music urls</h2>");
-      document.write("<ol>");
-      for(var i=0; i<musicUrls.length; i++){
-        document.write("<li>"+musicUrls[i]+"</li>");
       };
       document.write("</ol>");
     };
@@ -42,8 +32,6 @@
 
     <!-- In this script I call the first function:-->
     <script>printPictureUrlsOL();</script>
-    <!-- In this script I call the second function:-->
-    <script>printMusicUrlsOL();</script>
 
     <script>writeMusicPlayer("input does not matter yet")</script>
 

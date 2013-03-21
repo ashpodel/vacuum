@@ -19,29 +19,17 @@
 
     function showPictures(){
       // shows the large pictures in order (we use unordered list here)
-      var pictureUrls = getPictureUrls("input does not matter yet");
+      var pictureUrls = getPictureUrls("Flickr",["galaxies","stars","hubble"],50);
       document.write("<h2>Pictures (large)</h2>");
       document.write("<ul>");
-      for(var i=0; i<10; i++){
+      for(var i=0; i<pictureUrls.length; i++){
         document.write("<li><img src=\""+pictureUrls[i]+"\"></li>");
       };
       document.write("</ul>");
     };
-
-    function playMusic(){
-      // Plays the first music in the music urls
-      var musicUrls = getMusicUrls("input does not matter yet");
-      document.write("<h2>Play music</h2>");
-      document.write(
-        "<audio controls autoplay><source src=\""+musicUrls[1]+"\"></source>Your browser does not support this audio format.</audio>");
-    };
     </script>
-
-    <!-- In this script I call the first function:-->
+    <script>writeMusicPlayer();</script>
     <script>showPictures();</script>
-    <!-- In this script I call the second function:-->
-    <script>/*playMusic();*/</script>
-    
   </div>
 
 

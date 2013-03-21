@@ -2,26 +2,40 @@
 They each return a list of strings corresponding to urls you can use in HTML 
 tags "img" and "audio". See examples I joined.*/
 
-function getPictureUrls(input){
-	return getFlickrUrls(20);
-};
+function getPictureUrls(source,keywords,number){
+    /* Gives image urls 
+    - source: website to take pictures from, default is "Flickr"
+    - keywords: list of keywords (strings) to specify types of pictures, default is [] (any interesting picture)
+    - number: number of urls to give, default is 20  
+    */
 
-function getMusicUrls(input){
-	return ["sound/Eddie_Vedder-Society-Into_the_Wild_Soundtrack.ogg"];
+	// Assert default values to input:
+	sources = typeof sources !== 'undefined' ? sources : "Flickr"; // default source is Flickr
+	keywords = typeof keywords !== 'undefined' ? keywords : []; // default keywords is no tag at all
+	number = typeof number !== 'undefined' ? number : 20; // default tag is no tag at all: any picture
+
+    if(source=="Flickr"){
+    	return getFlickrUrls(number,keywords);
+    }
 };
 
 function writeMusicPlayer(input){
 	// For FMA music:
 	var track_id = getFMAtrackid(input);
 	FMATrackEmbed(track_id);
-}
+};
+
+/* Obsolete: */
+function getMusicUrls(input){
+	return ["sound/Eddie_Vedder-Society-Into_the_Wild_Soundtrack.ogg"];
+};
 
 /*************************************************************
 The rest of the functions implement the first two functions. 
 *************************************************************/
 
 function response(RESTful_url){
-    // returns the string (it should be in json or xml format) returned by the RESTful url request
+    // returns the string (it should be in json or in xml format) returned by the RESTful url request
     var options = { 
     	dataType:'json',
 		async: false, // don't erase this line!
@@ -39,11 +53,20 @@ Functions to retrieve flickr urls
 
 var FLICKR_API_KEY="b88f268b6afd40932818ac007a9c3f4b"; // EC's flickr api key
 
-function getFlickrUrls(number){
-	// This retrieves some interesting (and recent) flickr urls with 1024p on the longest side.
-	// returns returns less than or equal to 'number' image urls. 
-	result=[];
-	var request = "http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key="+FLICKR_API_KEY;
+function getFlickrUrls(number,tags){
+	tags = typeof tags !== 'undefined' ? tags : [];
+	/* 
+	This retrieves some interesting (and recent) flickr urls with 1024p on the longest side.
+	- returns returns less than or equal to 'number' image urls.
+	- tags is a list of tags to look for (in js, an array of strings is expected). 
+	*/  
+	var result=[];
+	if(tags.length==0){
+		// In this case just get interesting flickr images
+		var request = "http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key="+FLICKR_API_KEY;
+	} else {
+		var request = "http://api.flickr.com/services/rest/?method=flickr.photos.search&api_key="+FLICKR_API_KEY+"&tags="+tags;
+	}
 	var resp = response(request);
 	var photos = jQuery(resp).find('photo');
 	for(var ph=0 ; ph<photos.length ; ph++){
@@ -54,9 +77,17 @@ function getFlickrUrls(number){
     	var server = photo.attributes.getNamedItem("server").value;
     	var secret = photo.attributes.getNamedItem("secret").value;
     	result.push("http://farm"+farm+".staticflickr.com/"+server+"/"+photo_id+"_"+secret+"_b.jpg");
+    	// Corresponsding flickr page is = flickrPhotoPage(photo_id,secret));
     };
-    cutoff = Math.min.apply(Math, [number,result.length]);
+    var cutoff = Math.min.apply(Math, [number,result.length]);
     return result.slice(0,cutoff);
+};
+
+function flickrPhotoPage(photo_id,secret){
+	var request = "http://api.flickr.com/services/rest/?method=flickr.photos.getInfo&photo_id="+photo_id+"&secret="+secret+"&api_key="+FLICKR_API_KEY;
+	var resp = response(request);
+	var photoPage = jQuery(resp).find('url');
+	return photoPage.text();
 };
 
 /*************************************************************
@@ -84,12 +115,14 @@ function getFMAtrackid(input){
 
 function FMATrackEmbed(track_id){
 	// Writes in the document an audio plug for the track id in FMA.
-	document.write('<object width="300" height="50">\
+	document.write('<object width="300" height="50" style="{background-color: rgba(0, 0, 0, 0.0);}">\
 		<param name="movie" value="http://freemusicarchive.org/swf/trackplayer.swf"/>\
 		<param name="flashvars" value="track=http://freemusicarchive.org/services/playlists/embed/track/'+track_id+'.xml"/>\
 		<param name="allowscriptaccess" value="sameDomain"/>\
-		<param name="autoplay" value="1"/>\
-		<embed type="application/x-shockwave-flash" autoplay="true" src="http://freemusicarchive.org/swf/trackplayer.swf" width="300" height="50" flashvars="track=http://freemusicarchive.org/services/playlists/embed/track/'+track_id+'.xml" allowscriptaccess="sameDomain" /></object>');
+		<param name="play" value="true"/>\
+		<param name="autoplay" value="true"/>\
+		<param name="autostart" value="true"/>\
+		<embed play="true" autoplay="true" autostart="true" type="application/x-shockwave-flash" src="http://freemusicarchive.org/swf/trackplayer.swf" width="300" height="50" flashvars="track=http://freemusicarchive.org/services/playlists/embed/track/'+track_id+'.xml;autostart=true" allowscriptaccess="sameDomain" /></object>');
 };
 
 
