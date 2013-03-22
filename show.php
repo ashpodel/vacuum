@@ -25,13 +25,10 @@
       <!-- Retrieve the keywords from GET variables -->
       <script>
       var GET = getUrlVars();
-      if("keywords" in GET){
-        if(GET["keywords"]=="keywords for the show"){
-            keywords = [];
-        } else {
+      if(GET["keywords"].length>0){        
           keywords = GET["keywords"].split('+');
         }  
-      } else {
+      else {
         keywords = [];
       }
       </script>
