@@ -5,6 +5,8 @@ var app = express();
 //Details here: http://javascriptplayground.com/blog/2012/04/beginning-node-js-express-tutorial
 app.get('/',function(req,res){
 	res.send('hello world');	
+	  console.log('The solution is: ', rows[0].solution);
+
 })
 
 app.use("/", express.static(__dirname));
