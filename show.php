@@ -50,19 +50,9 @@
           })
 
       })
-
-          var pictureUrls = getPictureUrls("Flickr",keywords,30);
-      </script>
-      <script>
-      /*
-      function printMusicUrlsOL(){
-        // Prints music urls in an ordered list
-        var musicUrls = getMusicUrls("input does not matter yet");
-        document.write("<audio controls autoplay>");
-        document.write("<source src='"+musicUrls[0]+"'type='audio/ogg' controls='controls'></source>");
-        document.write("</audio>");
-      };
-      */
+      var pictureUrls = getPictureUrls("Flickr",keywords,30);
+      // Put picture urls in POST.
+      
       </script>
 
       <script>writeMusicPlayer("input does not matter yet")</script> 
