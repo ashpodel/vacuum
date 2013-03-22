@@ -16,7 +16,7 @@
             <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
             <div class="nav-collapse collapse">
               <ul class="nav">
-                <li><a href="#">Home</a></li> <!-- can add class="active" to li -->
+                <li><a href="index.php">Home</a></li> <!-- can add class="active" to li -->
                 <li><a href="#about">About</a></li>
                 <li><a href="#team">Team</a></li>
                 <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
@@ -24,10 +24,16 @@
                    <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">User<b class="caret"></b></a>
                   <ul class="dropdown-menu">
                     <li><a href="login.php">Log in</a></li>
-                    <li><a href="signup.php">Sign in</a></li>
+                    <li><a href="signup.php">Sign Up</a></li>
                     <li class="divider"></li>
                     <li class="nav-header">Explore</li>
                     <li><a href="user.php">My Stuff</a></li>
+
+                    <?php  
+                      if (isset($_COOKIE['user_id'])){
+                        echo '<li><a href="logout.php?user_id='. $_COOKIE['user_id'].'">Logout</a></li>';  
+                      }
+                    ?>
                   </ul>
                 </li>
               </ul>
