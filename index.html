@@ -86,7 +86,10 @@
             <div class="carousel-caption">
               <h1>Vacuum</h1>
               <p class="lead">Lacking of imagination lately? Change your mind, explore the best content of the web with Vacuum.</p>
-              <a class="btn btn-large btn-inverse" href="show.html">Get inspiration now.</a>
+              <form action="show.html" method="get">
+                <input class="btn btn-large btn-inverse" type="submit" value="Get inspiration now."><br>
+                <input class="btn btn-large btn-inverse" type="text" name="keywords" style="border-color:#000000;" value="keywords for the show" onblur="if (this.value == '') {this.value = 'keywords for the show';}"  onfocus="if (this.value == 'keywords for the show') {this.value = '';}">
+              </form>
             </div>
           </div>
         </div>
@@ -96,7 +99,11 @@
             <div class="carousel-caption">
               <h1>Vaccum, travel here and now.</h1>
               <p class="lead">Vaccum gives you random audio and visual content, from the best sources of the web. Find inspiration in moments of drought, travel in moments of melancholy. </p>
-              <a class="btn btn-large btn-inverse" href="show.html">Start here.</a>
+
+              <form action="show.html" method="get">
+                <input class="btn btn-large btn-inverse" type="submit" value="Start the show."><br>
+                <input class="btn btn-large btn-inverse" type="text" style="border-color:#000000;" name="keywords" value="keywords for the show" onblur="if (this.value == '') {this.value = 'keywords for the show';}"  onfocus="if (this.value == 'keywords for the show') {this.value = '';}">
+              </form>
             </div>
           </div>
         </div>
@@ -104,6 +111,10 @@
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div><!-- /.carousel -->
+
+
+  
+  
 
       <!-- Marketing messaging and featurettes
   ================================================== -->

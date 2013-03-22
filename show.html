@@ -21,8 +21,22 @@
       <![endif]-->
     </head>
     <body>
+      <!-- Retrieve the keywords from GET variables -->
       <script>
-          var pictureUrls = getPictureUrls("Flickr",["lake","water","moutain","mountains"],30);
+      var GET = getUrlVars();
+      if("keywords" in GET){
+        if(GET["keywords"]=="keywords for the show"){
+            keywords = [];
+        } else {
+          keywords = GET["keywords"].split('+');
+        }  
+      } else {
+        keywords = [];
+      }
+      </script>
+    
+      <script>
+          var pictureUrls = getPictureUrls("Flickr",keywords,30);
           $.backstretch(pictureUrls, {
               fade: 750,
               duration: 1000
@@ -38,7 +52,7 @@
         document.write("</audio>");
       };
       */
-      </script>    
+      </script>
 
       <script>writeMusicPlayer("input does not matter yet")</script> 
 
