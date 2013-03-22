@@ -9,9 +9,9 @@
 	}
 
 	$userid = $_COOKIE['user_id'];
-	$photo = 'abc.jpg';
+	$photo_id = '111';
 	$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-	$query = "INSERT INTO photos (user_id, photo) VALUES ('$userid','$photo')";	
+	$query = "INSERT INTO photos (user_id, photo_id) VALUES ('$userid','$photo_id')";	
 	mysqli_query($dbc, $query);
 ?>

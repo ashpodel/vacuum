@@ -20,6 +20,7 @@
       <script src="../assets/js/html5shiv.js"></script>
       <![endif]-->
     </head>
+
     <body>
       <!-- Retrieve the keywords from GET variables -->
       <script>
@@ -56,8 +57,9 @@
 
       <script>writeMusicPlayer("input does not matter yet")</script> 
 
-      <a class="btn btn-small btn-inverse" href="index.html">Home</a>
-      <a class="btn btn-small btn-inverse" href="signup.html">Sign Up</a>
+      <a class="btn btn-small btn-inverse" href="index.php">Home</a>
+      <a class="btn btn-small btn-inverse" href="save.php">Save to My Account</a>
+      <a class="btn btn-small btn-inverse" href="signup.php">Sign Up</a>
 
     <!-- In this script I call the first function:-->
     
