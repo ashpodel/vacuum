@@ -1,7 +1,3 @@
-/* Ashish, use only the first two functions: getPictureUrls and getMusicUrls.
-They each return a list of strings corresponding to urls you can use in HTML 
-tags "img" and "audio". See examples I joined.*/
-
 function getPictureUrls(source,keywords,number){
     /* Gives image urls 
     - source: website to take pictures from, default is "Flickr"
