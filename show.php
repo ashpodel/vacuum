@@ -42,6 +42,9 @@
 
 </head>
 <body>
+  <script>
+    var track_id = getFMAtrackid("");
+  </script>
   <div class="transluscent">
     <div class="container">
       <a class="btn btn-small btn-inverse" href="index.php">Back</a>
@@ -70,7 +73,7 @@
   <div class="transluscent bottom" style="">
     <div class="container">
         <script>
-        var track_id = writeMusicPlayer("input does not matter yet");
+        FMATrackEmbed(track_id);
         </script> 
         <a id="pause" style="float:right" class="btn btn-large btn-info">Pause Slideshow</a>
         

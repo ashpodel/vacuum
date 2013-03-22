@@ -45,9 +45,8 @@
       <h2>Music History</h2>
       <script>
       for(var musicIter = 0 ; musicIter < musicFMAids.length; musicIter++){
-        document.write('<div class="span5"><p align="center">');
+        document.write('<div>');
         FMATrackEmbed(musicFMAids[musicIter]);
-        document.write("</p>");
         document.write('</div>')
       }
       </script>

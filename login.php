@@ -1,3 +1,4 @@
+<? ob_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,3 +70,4 @@
 	<?php include 'includes/footer.php';?>
 </body>
 </html>
+<? ob_flush(); ?>

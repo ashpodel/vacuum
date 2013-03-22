@@ -35,7 +35,7 @@
 			}
 
 			?>
-		<a class="btn" href="index.php">Home</a>	<a class="btn" href="users.php">Your Account</a>	
+		<a class="btn" href="index.php">Home</a>	<a class="btn" href="user.php">Your Account</a>	
 	</div>
 	<?php include 'includes/footer.php';?>
 </body>
