@@ -32,7 +32,7 @@
 
   <body>
 
-<?php include '/includes/nav.php';?>
+<?php include 'includes/nav.php';?>
 
 
     <!-- Carousel

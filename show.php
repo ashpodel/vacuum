@@ -37,11 +37,21 @@
       </script>
     
       <script>
-          var pictureUrls = getPictureUrls("Flickr",keywords,30);
-          $.backstretch(pictureUrls, {
+      $(document).ready(function(){
+          $('body').backstretch(pictureUrls, {
               fade: 750,
               duration: 1000
           });
+          $('#pause').click(function(){
+            $('body').data('backstretch').pause();
+          })
+          $('#play').click(function(){
+            $('body').data('backstretch').resume();
+          })
+
+      })
+
+          var pictureUrls = getPictureUrls("Flickr",keywords,30);
       </script>
       <script>
       /*
@@ -56,7 +66,8 @@
       </script>
 
       <script>writeMusicPlayer("input does not matter yet")</script> 
-
+      <a href="#" id="pause">Pause</a>
+      <a href="#" id="play">Play</a>
       <a class="btn btn-small btn-inverse" href="index.php">Home</a>
       <a class="btn btn-small btn-inverse" href="save.php">Save to My Account</a>
       <a class="btn btn-small btn-inverse" href="signup.php">Sign Up</a>
@@ -64,8 +75,6 @@
     <!-- In this script I call the first function:-->
     
     <!-- In this script I call the second function:-->
-    
-    
 
     </body>
   </html>

@@ -12,7 +12,7 @@
 <script src="urls.js"></script>
     <!-- Retrieve user identifications: photos they saw and music they heard -->
 
-<?php include '/includes/nav.php';?>
+<?php include 'includes/nav.php';?>
 <?php 
       require_once('dbvars.php');
 

@@ -35,8 +35,8 @@ if (!isset($_COOKIE['user_id'])) {
 	}
 }
 ?>
-<?php include '/includes/header.php';?>
-<?php include '/includes/nav.php';?>
+<?php include 'includes/header.php';?>
+<?php include 'includes/nav.php';?>
 <div class="container">
 	<h3>Vacuum - Log In</h3>
 	<?php
@@ -60,4 +60,4 @@ if (!isset($_COOKIE['user_id'])) {
 	}
 	?>
 </div>	
-<?php include '/includes/footer.php';?>
+<?php include 'includes/footer.php';?>
