@@ -1,15 +1,14 @@
+<?php $page_title = 'Sign up for Vacuum'?>
 <!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Vacuum - Sign Up</title>
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">  
+  <?php include 'includes/header.php';?>
 </head>
 <body>
-<div class="container">
-  <h1>Vacuum - Sign Up</h1>
-
-<?php
+  <?php include 'includes/nav_inner.php';?>
+  <div class="container outer_container">
+    <h1 class="pg_title">Sign up for Vacuum</h1>
+    <?php
   //require_once('appvars.php');
   require_once('dbvars.php');
 
@@ -50,17 +49,26 @@
 
   mysqli_close($dbc);
 ?>
-
-  <h3>Sign up for Vacuum.</h3>
   <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-      <label for="username">Email:</label>
+      <label for="username">Email</label>
       <input type="text" id="username" name="username" value="<?php if (!empty($username)) echo $username; ?>" /><br />
-      <label for="password1">Password:</label>
+      <label for="password1">Password</label>
       <input type="password" id="password1" name="password1" /><br />
-      <label for="password2">Password (retype):</label>
+      <label for="password2">Password (retype)</label>
       <input type="password" id="password2" name="password2" /><br />
     <input type="submit" value="Sign Up" name="submit" class="btn"/>
   </form>
 </div>
-</body> 
+  </div>
+  <?php include 'includes/footer.php';?>
+</body>
 </html>
+
+
+
+
+
+
+
+
+

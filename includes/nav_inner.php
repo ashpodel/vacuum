@@ -12,8 +12,6 @@
     <div class="nav-collapse collapse">
       <ul class="nav">
         <li><a href="index.php">Home</a></li> <!-- can add class="active" to li -->
-        <li><a href="#about">About</a></li>
-        <li><a href="#team">Team</a></li>
     </ul>
          
         <ul class="nav" style="float:right">
@@ -30,8 +28,6 @@
           <?php
             }
           ?>
-
-  
         </ul>
 
   </div><!--/.nav-collapse -->
