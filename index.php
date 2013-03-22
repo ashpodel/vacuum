@@ -31,7 +31,50 @@
   </head>
 
   <body>
-    <?php include 'includes/nav.php';?>
+
+
+
+    <!-- NAVBAR
+================================================== -->
+    <div class="navbar-wrapper">
+      <!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
+      <div class="container">
+
+        <div class="navbar navbar-inverse">
+          <div class="navbar-inner">
+            <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">Vacuum</a>
+            <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li><a href="#">Home</a></li> <!-- can add class="active" to li -->
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Team</a></li>
+                <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
+                <li class="dropdown">
+                   <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">User<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="login.php">Log in</a></li>
+                    <li><a href="signup.php">Sign in</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-header">Explore</li>
+                    <li><a href="user.php">My Stuff</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div><!-- /.navbar-inner -->
+        </div><!-- /.navbar -->
+
+      </div> <!-- /.container -->
+    </div><!-- /.navbar-wrapper -->
+
+
 
     <!-- Carousel
 ================================================== -->
@@ -43,7 +86,10 @@
             <div class="carousel-caption">
               <h1>Vacuum</h1>
               <p class="lead">Lacking of imagination lately? Change your mind, explore the best content of the web with Vacuum.</p>
-              <a class="btn btn-large btn-inverse" href="show.html">Get inspiration now.</a>
+              <form action="show.html" method="get">
+                <input class="btn btn-large btn-inverse" type="submit" value="Get inspiration now."><br>
+                <input class="btn btn-large btn-inverse" type="text" name="keywords" style="border-color:#000000;" value="keywords for the show" onblur="if (this.value == '') {this.value = 'keywords for the show';}"  onfocus="if (this.value == 'keywords for the show') {this.value = '';}">
+              </form>
             </div>
           </div>
         </div>
@@ -53,7 +99,11 @@
             <div class="carousel-caption">
               <h1>Vaccum, travel here and now.</h1>
               <p class="lead">Vaccum gives you random audio and visual content, from the best sources of the web. Find inspiration in moments of drought, travel in moments of melancholy. </p>
-              <a class="btn btn-large btn-inverse" href="show.html">Start here.</a>
+
+              <form action="show.html" method="get">
+                <input class="btn btn-large btn-inverse" type="submit" value="Start the show."><br>
+                <input class="btn btn-large btn-inverse" type="text" style="border-color:#000000;" name="keywords" value="keywords for the show" onblur="if (this.value == '') {this.value = 'keywords for the show';}"  onfocus="if (this.value == 'keywords for the show') {this.value = '';}">
+              </form>
             </div>
           </div>
         </div>
@@ -61,6 +111,10 @@
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div><!-- /.carousel -->
+
+
+  
+  
 
       <!-- Marketing messaging and featurettes
   ================================================== -->
