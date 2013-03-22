@@ -51,25 +51,32 @@
 
       })
 
-          var pictureUrls = getPictureUrls("Flickr",keywords,30);
-      </script>
-      <script>
-      /*
-      function printMusicUrlsOL(){
-        // Prints music urls in an ordered list
-        var musicUrls = getMusicUrls("input does not matter yet");
-        document.write("<audio controls autoplay>");
-        document.write("<source src='"+musicUrls[0]+"'type='audio/ogg' controls='controls'></source>");
-        document.write("</audio>");
-      };
-      */
+      var pictureObjects = getFlickrPictureObjects(30,keywords);
+      var pictureUrls = [];
+      for(var iter=0; iter<pictureObjects.length; iter++){
+        pictureUrls.push(getFlickrUrl(pictureObjects[iter],"b"));
+      }; 
       </script>
 
-      <script>writeMusicPlayer("input does not matter yet")</script> 
+      <script>
+      var track_id = writeMusicPlayer("input does not matter yet");
+      </script> 
       <a href="#" id="pause">Pause</a>
       <a href="#" id="play">Play</a>
       <a class="btn btn-small btn-inverse" href="index.php">Home</a>
-      <a class="btn btn-small btn-inverse" href="save.php">Save to My Account</a>
+
+
+
+      
+      <form id="savePictures" action="save.php" method="post">
+        <script>
+        document.write('<input type="hidden" name="pictureObjects" value="'+JSON.stringify(pictureObjects).split("\"").join(" ")+'" />');
+        document.write('<input type="hidden" name="track_id" value="'+track_id+'" />');
+        </script>
+      </form>
+      <a class="btn btn-small btn-inverse" href='#' onclick='document.getElementById("savePictures").submit()'> Save to my account.</a>
+
+
       <a class="btn btn-small btn-inverse" href="signup.php">Sign Up</a>
 
     <!-- In this script I call the first function:-->

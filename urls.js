@@ -32,6 +32,7 @@ function writeMusicPlayer(input){
     /* TODO: put track_id in database */
 
 	FMATrackEmbed(track_id);
+	return track_id;
 };
 
 
