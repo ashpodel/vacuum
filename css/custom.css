@@ -1,4 +1,6 @@
  #splash{height: 700px; }
+ .transluscent{width:98%; background:rgba(0,0,0,0.5); padding:1%}
+ .transluscent.bottom{position:absolute; bottom:0; }
  .bg{position: absolute; width: 100%; height: 600px; background: rgba(0,0,0,0.6); top:0; z-index: 0; padding-top: 100px;}
  .btn{font-family: Oxygen, Helvetica, Arial, sans-serif;}
  .outer_container{padding-top:100px;}

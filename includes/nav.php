@@ -30,8 +30,6 @@
           <?php
             }
           ?>
-
-  
         </ul>
 
   </div><!--/.nav-collapse -->

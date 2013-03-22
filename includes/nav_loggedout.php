@@ -13,23 +13,6 @@
         <ul class="nav">
           <li><a href="index.php">Home</a></li> <!-- can add class="active" to li -->
         </ul>
-        
-        <ul class="nav" style="float:right">
-
-          <?php  
-          if (isset($_COOKIE['user_id'])){
-            echo '<li><a href="user.php" class="username">'.$_COOKIE['username'].'</a></li>';  
-            echo '<li><a href="logout.php?user_id='. $_COOKIE['user_id'].'">Logout</a></li>';  
-          } else {
-            ?>
-            <li><a href="login.php">Log in</a></li>
-            <li><a href="signup.php">Sign Up</a></li>
-
-            <?php
-          }
-          ?>
-        </ul>
-
       </div><!--/.nav-collapse -->
     </div>
   </div><!-- /.navbar-inner -->

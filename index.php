@@ -21,7 +21,7 @@
       <div class="container">
         <div class="row">
           <div class="span4">
-            <h1 style="font-family:'Aller Display'; color:#2fe3e5; font-size:7em; font-weight:normal; margin-bottom:50px; line-height:0; padding-top:9px;">vacuum</h1>
+            <h1 style="font-family:'Aller Display'; color:#2fe3e5; font-size:7em; font-weight:normal; margin-bottom:50px; line-height:0; padding-top:9px;"><img src="img/logo.png"/></h1>
             
           </div>
           <div class="span8">
@@ -36,7 +36,7 @@
             <form action="show.php" method="get">
               <input type="text" name="keywords" placeholder="Add some keywords"><br/>
               <!--<input class="btn btn-large btn-inverse" type="text" name="keywords" style="border-color:#000000;" value="keywords for the show" onblur="if (this.value == '') {this.value = 'keywords for the show';}"  onfocus="if (this.value == 'keywords for the show') {this.value = '';}">-->
-              <input class="btn btn-large btn-inverse" type="submit" value="Get Inspiration Now"><br>
+              <input class="btn btn-large btn-info" type="submit" value="Get Inspiration Now"><br>
             </form>
 
           </div>
@@ -60,17 +60,20 @@
       <p><br><br></p>
       <!-- Twocolumns-->
       <div class="row">
-        <div class="span6">
+    <div class="span1"></div>
+        <div class="span5">
           <p align="center"><img class="img-circle" src="img/manu.png" width="200"></p>
           <h2 align="center">Emmanuel Charon</h2>
           <p align="justify">After graduating from Ecole Polytechnique in France, Emmanuel Charon worked as a research intern at the LINCS/INRIA on congestion control in networks. He then moved to Stanford University for his Master of Science in Electrical Engineering. He now works at <a href="http://www.diffbot.com">Diffbot</a>, a start up specialized in web page classification.</p>
         </div><!-- /.span6 -->
-        <div class="span6">
+        <div class="span5">
           <p align="center"><img class="img-circle" width="200" src="img/ashish.png"></p>
           <h2 align="center">Ashish Goel</h2>
-          <p align="justify">Ashish enjoys pushing pixels. He also frequently finds himself deprived of creative inspiration. He is currently a graduate student at the graduate product design program at Stanford University. </p>
+          <p align="justify">Ashish is currently a student at the graduate product design program at Stanford University. He often finds himself deprived of creative inspiration, and hopes that Vacuum will provide some reprieve. He likes pushing pixels. </p>
         </div><!-- /.span6 -->
       </div><!-- /.row -->
+    <div class="span1"></div>
+    
     </div>
     <hr class="featurette-divider">
     <footer>

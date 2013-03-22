@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Le styles -->
-  <link href="css/bootstrap.css" rel="stylesheet">
-  <link href="css/bootstrap-responsive.css" rel="stylesheet">
-  <script src="js/jquery.js"></script>
 
+<!DOCTYPE html>
+<html>
+<head>
+  <?php include 'includes/header.php';?>
+  <script src="urls.js"></script>
 </head>
 <body>
-  <div class="container">
-    <script src="urls.js"></script>
-    <!-- Retrieve user identifications: photos they saw and music they heard -->
+  <?php include 'includes/nav_inner.php';?>
+  <div class="container outer_container">
 
-    <?php include 'includes/nav.php';?>
-
+    <h1 class="pg_title">Your Vacuum History</h1>
     <?php 
     require_once('dbvars.php');
 
@@ -35,18 +31,18 @@
         }
       ?>    
 
-      <h2>Images I saw</h2>
+      <h2>Images History</h2>
       <script>
       for(var pictureIter = 0 ; pictureIter < pictureObjects.length; pictureIter++){
-        document.write('<div class="span3"><p align="center">');
+        document.write('<div style="float:left">');
         var imgSource = getFlickrUrl(pictureObjects[pictureIter],"q");
         var fpp = flickrPhotoPage(pictureObjects[pictureIter]);
         document.write('<a href="'+fpp+'""><img src="'+imgSource+'"></a>');
-        document.write("</p>");
         document.write('</div>');
       }
       </script>
-      <h2>Music I heard</h2>
+      <div class="container"></div>
+      <h2>Music History</h2>
       <script>
       for(var musicIter = 0 ; musicIter < musicFMAids.length; musicIter++){
         document.write('<div class="span5"><p align="center">');
@@ -63,11 +59,8 @@
   }
 
   ?>  
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <?php include 'includes/footer.php';?>
-    <!--<script src="js/bootstrap-min.js"></script>-->
-  </body>
-  </html>
+    
+  </div>
+  <?php include 'includes/footer.php';?>
+</body>
+</html>
