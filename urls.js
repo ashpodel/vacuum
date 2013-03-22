@@ -10,15 +10,41 @@ function getPictureUrls(source,keywords,number){
 	keywords = typeof keywords !== 'undefined' ? keywords : []; // default keywords is no tag at all
 	number = typeof number !== 'undefined' ? number : 20; // default tag is no tag at all: any picture
 
-    if(source=="Flickr"){
-    	return getFlickrUrls(number,keywords);
-    }
+    // source is always flickr
+    var pictureObjects = getFlickrPictureObjects(number,keywords);
+
+    /* TODO: put each picture object (they have 5 attributes: source, farm, server, photo_id, secret) in database */
+    //console.log(pictureObjects);
+
+	result = [];
+	for(var iter=0; iter<pictureObjects.length; iter++){
+		result.push(getFlickrUrl(pictureObjects[iter],"b"));
+	};
+	return result;
 };
+
 
 function writeMusicPlayer(input){
 	// For FMA music:
 	var track_id = getFMAtrackid(input);
+	//console.log(track_id);
+
+    /* TODO: put track_id in database */
+
 	FMATrackEmbed(track_id);
+};
+
+
+function getUrlVars(){
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
 };
 
 /* Obsolete: */
@@ -49,7 +75,7 @@ Functions to retrieve flickr urls
 
 var FLICKR_API_KEY="b88f268b6afd40932818ac007a9c3f4b"; // EC's flickr api key
 
-function getFlickrUrls(number,tags){
+function getFlickrPictureObjects(number,tags){
 	tags = typeof tags !== 'undefined' ? tags : [];
 	/* 
 	This retrieves some interesting (and recent) flickr urls with 1024p on the longest side.
@@ -72,15 +98,32 @@ function getFlickrUrls(number,tags){
     	var farm = photo.attributes.getNamedItem("farm").value;
     	var server = photo.attributes.getNamedItem("server").value;
     	var secret = photo.attributes.getNamedItem("secret").value;
-    	result.push("http://farm"+farm+".staticflickr.com/"+server+"/"+photo_id+"_"+secret+"_b.jpg");
-    	// Corresponsding flickr page is = flickrPhotoPage(photo_id,secret));
+    	result.push({"source":"flickr", "farm":farm,"server":server, "photo_id":photo_id, "secret":secret});
     };
     var cutoff = Math.min.apply(Math, [number,result.length]);
     return result.slice(0,cutoff);
 };
 
-function flickrPhotoPage(photo_id,secret){
-	var request = "http://api.flickr.com/services/rest/?method=flickr.photos.getInfo&photo_id="+photo_id+"&secret="+secret+"&api_key="+FLICKR_API_KEY;
+function getFlickrUrl(imageObject,size_suffix){
+	/* image object has attributes: source, farm, server, photo_id, secret */
+    /* size_suffix are like in flickr api:
+		s	75x75
+		q	150x150
+		t	100 on longest side
+		m	240
+		n	320 on longest side
+		-	500
+		z	640
+		c	800
+		b	1 024*
+		o	original image size
+    */ 
+    return "http://farm"+imageObject["farm"]+".staticflickr.com/"+imageObject["server"]+"/"+imageObject["photo_id"]+"_"+imageObject["secret"]+"_"+size_suffix+".jpg";
+};
+
+
+function flickrPhotoPage(imageObject){
+	var request = "http://api.flickr.com/services/rest/?method=flickr.photos.getInfo&photo_id="+imageObject["photo_id"]+"&secret="+imageObject["secret"]+"&api_key="+FLICKR_API_KEY;
 	var resp = response(request);
 	var photoPage = jQuery(resp).find('url');
 	return photoPage.text();
